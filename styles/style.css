@@ -1,0 +1,47 @@
+img {
+	width: 30px;
+	padding-bottom: 1%;
+	vertical-align: middle;
+}
+body {
+	background-color: rgb(129, 145, 161);
+	font-family: "Gill Sans", sans-serif;
+	font-size: 20px;
+}
+main {
+	margin: 10% 2%;
+    padding-bottom: 5%;
+	background-color: rgb(241, 248, 254);
+	text-align: center;
+	border-radius: 10px;
+}
+
+h1 {
+	font-size: 30px;
+	display: inline-block;
+}
+
+p {
+	margin-top: 0;
+}
+
+h2:last-of-type{
+    font-size: 20px;
+    /* background-color: red; */
+}
+
+/* section span p {
+	background-color: green;
+} */
+
+
+input {
+	border-radius: 5px;
+}
+
+button {
+	border-radius: 20px;
+	padding: 0.5% 1%;
+	color: white;
+	background-color: rgb(37, 70, 17);
+}
