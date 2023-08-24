@@ -1,11 +1,13 @@
 const showPassword = () => {
-  const numberInField = null;
-
-  return numberInField;
+  document.getElementById('textGeneratedPassword').innerHTML = "Senha Gerada:";
+  const sizeCharacters = document.getElementById('sizeCharacters').value;
+  let generatedPassword = document.getElementById('generatedPassword');
+  generatedPassword.innerText = generatePassword(sizeCharacters);
 }
 
 const generatePassword = (size) => {
-  if (size === null) {
+  size = Number(size);
+  if (isNaN(size) || size == "") {
     return 'Quantidade de caracteres não definida.';
   }
   const arrayNewPass = [];

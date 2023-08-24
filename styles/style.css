@@ -38,6 +38,10 @@ button {
 	background-color: rgb(37, 70, 17);
 }
 
+button:hover{
+  background-color: rgb(37, 88, 5);
+}
+
 h2:last-of-type {
 	font-size: 20px;
 }
