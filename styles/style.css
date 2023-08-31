@@ -1,15 +1,16 @@
 body {
-  background-color: rgb(129, 145, 161);
+  background-color: black;
   font-family: "Gill Sans", sans-serif;
   font-size: 20px;
 }
 
 main {
+	height: 300px;
 	margin: 10% 2%;
 	padding-bottom: 5%;
-	background-color: rgb(241, 248, 254);
+	background-color: rgb(7, 156, 124);
 	text-align: center;
-	border-radius: 10px;
+	border-radius: 700px;
 }
 
 img {
@@ -35,11 +36,11 @@ button {
 	border-radius: 20px;
 	padding: 0.5% 1%;
 	color: white;
-	background-color: rgb(37, 70, 17);
+	background-color: rgb(172, 27, 27);
 }
 
 button:hover{
-  background-color: rgb(37, 88, 5);
+  background-color: rgba(172, 27, 27, 0.6);
 }
 
 h2:last-of-type {
