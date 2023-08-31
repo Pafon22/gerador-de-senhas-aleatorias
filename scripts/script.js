@@ -1,68 +1,31 @@
-const moverChave = () => {
-  const chave = document.getElementById('chave');
-  const chaveY = chave.style.transform.slice(-6);
-  console.log(chaveY);
-  if (chaveY === '-100%)') {
-    chave.style.transform = 'translate(-50%, 0)';
-    console.log(chave.style.transform);
-  }
-  else {
-    chave.style.transform = 'translate(-50%, -100%)';
-    console.log(chave.style.transform);
-  }
+const criarElemento = (elemento, pai, id, classe) => {
+  const element = document.createElement(elemento);
+  if (pai !== '') pai.appendChild(element);
+  if (id !== '') element.id = id;
+  if (classe !== '') element.classList.add(classe);
+  return element;
 };
 
-const estilizarChave = (chave, main) => {
-  main.style.index = 0;
-  main.style.position = 'relative';
-  chave.id = 'chave';
-  chave.src = 'img/chave.png';
-  chave.style.zIndex = '-1';
-  chave.style.position = 'absolute';
-  chave.style.width = '500px';
-  chave.style.opacity = '1';
-  chave.style.transition = 'transform 2s';
-  chave.style.transform = 'translate(-50%, -100%)';
+const estilizarHeader = (headerTag, spanTagFrase) => {
+  headerTag.style.backgroundColor = 'teal';
+  headerTag.style.color = 'white';
+  headerTag.style.height = '100px';
+  headerTag.style.textAlign = 'center';
+  headerTag.children[0].innerText = 'Gerador de Senhas Aleatórias - Caracteres Possíveis: '
+  headerTag.children[1].innerText = 'Gerador de Senhas Aleatórias - Caracteres Possíveis: '
 };
 
-const criarChave = () => {
-  const main = document.getElementsByTagName('main')[0];
-  const antigaChave = document.getElementById('chave');
-  if (antigaChave) antigaChave.remove();
-  const chave = document.createElement('img');
-  estilizarChave(chave, main);
-  main.appendChild(chave);
-  return chave;
+const criarHeader = () => {
+  const headerTag = criarElemento('header', document.body, '', '');
+  const h1Tag = criarElemento('h1', headerTag, 'header-titulo', '');
+  const ulTag = criarElemento('ul', h1Tag, 11, 'header-lista-grupo', '');
+  const liTagTitulo = criarElemento('li', ulTag, '', 'header-lista-item');
+  const liTagCaracteresPossiveis = criarElemento('li', ulTag, '', 'header-lista-item');
+  estilizarHeader(headerTag);
 };
 
-criarChave();
-
-const showPassword = () => {
-  document.getElementById('textGeneratedPassword').innerHTML = "Senha Gerada:";
-  const sizeCharacters = document.getElementById('sizeCharacters').value;
-  let generatedPassword = document.getElementById('generatedPassword');
-  generatedPassword.innerText = generatePassword(sizeCharacters);
-  moverChave();
+const paginaCarregada = () => {
+  criarHeader();
 };
 
-const generatePassword = (size) => {
-  size = Number(size);
-  if (isNaN(size) || size == "") {
-    return 'Quantidade de caracteres não definida.';
-  }
-  const arrayNewPass = [];
-  let newPass = null;
-  const possibleCharacter = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%&*()[]{}_-+';
-
-  for (let index = 0; index < size; index += 1) {
-    let newNumber = Math.floor(Math.random() * possibleCharacter.length);
-    let randomCaps = Math.floor(Math.random() * 2);
-    newNumber = possibleCharacter[newNumber].toString();
-    if (randomCaps) {
-      newNumber = newNumber.toUpperCase();
-    };
-    arrayNewPass.push(newNumber);
-  }
-  newPass = arrayNewPass.join('');
-  return newPass;
-};
+window.addEventListener('load', paginaCarregada);
