@@ -293,6 +293,14 @@ const inputVerde = (event) => {
 
 };
 
+const mouseOverButton = (event) => {
+  if(event.type === 'mouseover'){
+    event.target.style.opacity = 0.8;
+  } else {
+    event.target.style.opacity = 1;
+  }
+};
+
 const paginaCarregada = () => {
   estilizarBody();
   criarHeader();
@@ -303,6 +311,8 @@ const paginaCarregada = () => {
   const buttonForm = document.getElementById('button-quantidade');
   for (const buttonTag of buttonTags) {
     buttonTag.addEventListener('click', mouseClickButton);
+    buttonTag.addEventListener('mouseover', mouseOverButton);
+    buttonTag.addEventListener('mouseleave', mouseOverButton);
   }
   inputAdd.addEventListener('input', inputVerde);
   inputRem.addEventListener('input', inputVerde);
