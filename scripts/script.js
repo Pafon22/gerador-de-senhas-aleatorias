@@ -88,7 +88,6 @@ const gerarAlfabetoFinal = () => {
       return arrayNormalizado;
     }
   }
-  console.log(alfabetoFinal);
   return alfabetoFinal;
 };
 
@@ -122,9 +121,9 @@ const mouseClickButton = (event) => {
   for (let index = 0; index < buttons.length; index += 1) {
     if (buttons[index] === target) selecionado = index;
   }
-
-  if (target.classList.contains('verdes') && target.classList.contains('click-opcoes')) {
-  } else { selecteds = true; }
+  if (!target.classList.contains('verdes') || !target.classList.contains('click-opcoes')) {
+    selecteds = true;
+  }
   foramSelecionados(target, spans[selecionado], selecteds);
 };
 
@@ -225,8 +224,7 @@ const gerarSenha = () => {
 };
 
 
-const verificarForm = (event) => {
-  const { target } = event;
+const verificarForm = () => {
   const quantidade = document.getElementById('quantidade').value;
   if (!quantidade) {
     document.getElementById('senha-gerada').innerText = 'Quantidade de caracteres inválida.'
@@ -242,7 +240,7 @@ const criarListaBaixo = (listaBaixo) => {
     liTag.style.margin = '1%';
     liTag.style.backgroundColor = 'rgba(0,0,0,0.5)';
     liTag.style.width = '31%';
-  };
+  }
 
   const liTags = document.getElementsByClassName('lista-baixo-item');
   const h2PossiveisCaracteres = criarElemento('h2', liTags[0], 'possiveis-caracteres', '');
@@ -257,8 +255,8 @@ const criarListaBaixo = (listaBaixo) => {
   form.action = "javascript:void(0);";
   input.id = 'quantidade';
   estilizarTextoBaixo(h2PossiveisCaracteres);
-  estilizarTextoBaixo(h2Quantidade);;
-  estilizarTextoBaixo(h2Senha);;
+  estilizarTextoBaixo(h2Quantidade);
+  estilizarTextoBaixo(h2Senha);
   estilizarInputQuantidade(input);
   estilizarButtonQuantidade(button);
 };
@@ -279,7 +277,7 @@ const criarMain = () => {
   main.style.justifyContent = 'space-around';
   criarSectionEsquerda(main);
   criarSectionDireita(main);
-  const sectionBaixo = criarSectionBaixo(document.body);
+  criarSectionBaixo(document.body);
 };
 
 const inputVerde = (event) => {
@@ -294,17 +292,31 @@ const inputVerde = (event) => {
 };
 
 const mouseOverButton = (event) => {
-  if(event.type === 'mouseover'){
+  if (event.type === 'mouseover') {
     event.target.style.opacity = 0.8;
   } else {
     event.target.style.opacity = 1;
   }
 };
 
+const criarFooter = () => {
+  const footer = criarElemento('footer', document.body, 'footer', '');
+  footer.style.background = 'black';
+  const h2 = criarElemento('h2', footer, '', '');
+  h2.innerText = 'Desenvolvido por ';
+  const a = criarElemento('a', h2, '', '');
+  a.href = 'https://linktr.ee/pafon22';
+  a.innerText = 'Pafon';
+  a.style.color = 'yellow';
+  a.target = '_blank';
+  h2.style.textAlign = 'center';
+};
+
 const paginaCarregada = () => {
   estilizarBody();
   criarHeader();
   criarMain();
+  criarFooter();
   const buttonTags = document.getElementsByClassName('click-opcoes');
   const inputAdd = document.getElementById('input-adicionar-customizados');
   const inputRem = document.getElementById('input-remover-customizados');
