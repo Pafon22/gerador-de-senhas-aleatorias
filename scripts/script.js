@@ -241,7 +241,6 @@ const criarListaBaixo = (listaBaixo) => {
     liTag.style.backgroundColor = 'rgba(0,0,0,0.5)';
     liTag.style.width = '31%';
   }
-
   const liTags = document.getElementsByClassName('lista-baixo-item');
   const h2PossiveisCaracteres = criarElemento('h2', liTags[0], 'possiveis-caracteres', '');
   const h2Quantidade = criarElemento('h2', liTags[1], 'quantidade-texto', '');
@@ -288,7 +287,6 @@ const inputVerde = (event) => {
   } else if (target.id === 'input-remover-customizados') {
     foramSelecionados(buttonTags[5], document.getElementById('remover-customizados-texto'), true);
   }
-
 };
 
 const mouseOverButton = (event) => {
